@@ -1,4 +1,4 @@
-# ⚙️ Marine Engine Predictive Maintenance System
+# Marine Engine Predictive Maintenance System
 
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![LightGBM](https://img.shields.io/badge/LightGBM-Gradient%20Boosting-02569B?style=for-the-badge&logo=microsoft&logoColor=white)](https://lightgbm.readthedocs.io/)
@@ -38,10 +38,10 @@ Marine engines are the backbone of maritime transportation — their operational
 
 ```mermaid
 flowchart LR
-    A["🔧 18 Sensor\nChannels"] --> B["⚡ Feature\nEngineering\n89 features"]
-    B --> C["🤖 LightGBM\nClassifier"]
-    C --> D["📊 SHAP\nExplainability"]
-    D --> E["🎯 Fault\nDiagnosis"]
+    A["18 Sensor\nChannels"] --> B["Feature\nEngineering\n89 features"]
+    B --> C["LightGBM\nClassifier"]
+    C --> D["SHAP\nExplainability"]
+    D --> E["Fault\nDiagnosis"]
 
     style A fill:#e3f2fd,stroke:#1565c0,color:#000
     style B fill:#fff3e0,stroke:#e65100,color:#000
@@ -64,12 +64,12 @@ Two model architectures were developed and compared:
 
 ```mermaid
 flowchart TD
-    subgraph Single["Single Multi-Class Model ✅ Best F1"]
+    subgraph Single["Single Multi-Class Model — Best F1"]
         S1[Input Features] --> S2["LightGBM\n8-class classifier"]
         S2 --> S3["Output: Class 0–7"]
     end
 
-    subgraph Hierarchical["Hierarchical Two-Stage Model ✅ Best Recall"]
+    subgraph Hierarchical["Hierarchical Two-Stage Model — Best Recall"]
         H1[Input Features] --> H2["Stage 1: Binary Detector\nNormal vs. Any Fault"]
         H2 -->|"P(fault) < τ"| H3["Predict: Normal"]
         H2 -->|"P(fault) ≥ τ"| H4["Stage 2: 7-Class Diagnoser\nWhich fault?"]
@@ -170,17 +170,17 @@ xychart-beta
 
 ```mermaid
 graph LR
-    subgraph Easy["✅ Easy (≥96% Recall)"]
+    subgraph Easy["Easy (≥96% Recall)"]
         E1["Bearing/Vibration\n100%"]
         E2["Turbocharger\n100%"]
         E3["Mixed Fault\n100%"]
         E4["Lube Oil\n97%"]
     end
-    subgraph Medium["⚠️ Medium (65–77%)"]
+    subgraph Medium["Medium (65–77%)"]
         M1["Exhaust Overheating\n68%"]
         M2["Cylinder Pressure Loss\n52%"]
     end
-    subgraph Hard["❌ Hard (<50%)"]
+    subgraph Hard["Hard (<50%)"]
         H1["Fuel Injection\n33%"]
     end
 

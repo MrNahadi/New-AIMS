@@ -129,7 +129,7 @@ flowchart TD
     B --> G[Rolling mean, std, min, max<br/>per sensor per window]
     C --> H[Inter-cylinder deviations<br/>Rate of change<br/>Fuel-to-load ratio]
     D --> I[Low/mid/high frequency energy<br/>Peak frequency]
-    E --> J["Linear regression residuals<br/>❌ R² ≈ 0.000 — FAILED"]
+    E --> J["Linear regression residuals<br/>R² ≈ 0.000 — FAILED"]
     F --> K[Vibration magnitude<br/>Oil health index<br/>EGT statistics<br/>Pressure statistics]
 
     style E fill:#f96
@@ -310,12 +310,12 @@ graph TD
         F10["#10 Vibration_Y: 0.089"]
     end
 
-    F1 --> N1[New V2 feature ✓]
-    F2 --> N2[New V2 feature ✓]
-    F4 --> N4[New V2 feature ✓]
-    F6 --> N6[New V2 feature ✓]
-    F7 --> N7[New V2 feature ✓]
-    F9 --> N9[New V2 feature ✓]
+    F1 --> N1[New V2 feature]
+    F2 --> N2[New V2 feature]
+    F4 --> N4[New V2 feature]
+    F6 --> N6[New V2 feature]
+    F7 --> N7[New V2 feature]
+    F9 --> N9[New V2 feature]
 
     style N1 fill:#c8e6c9
     style N2 fill:#c8e6c9
@@ -371,11 +371,11 @@ flowchart TD
     D --> E[Time-Based Split<br/>70/15/15]
     E --> F[V1 Single Model<br/>Macro F1: 0.79]
     E --> G[V1 Hierarchical Model<br/>Macro F1: 0.73, Recall: 0.84]
-    F --> H[Prediction Smoothing<br/>❌ Failed catastrophically]
+    F --> H[Prediction Smoothing<br/>Failed catastrophically]
     G --> H
     H --> I[Root Cause Analysis<br/>Window too long, residuals useless<br/>smoothing incompatible]
     I --> J[Feature Engineering V2<br/>10s window, interaction features<br/>removed residuals]
-    J --> K[V2 Single Model<br/>Macro F1: 0.80 ✓ BEST]
+    J --> K[V2 Single Model<br/>Macro F1: 0.80 BEST]
     J --> L[V2 Hierarchical Model<br/>Macro F1: 0.73, Recall: 0.83]
     K --> M[SHAP Analysis<br/>Validated feature engineering]
     L --> M
